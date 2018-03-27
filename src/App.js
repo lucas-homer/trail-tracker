@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>Google Maps API + React </h1> 
+        <h1>Trail Tracker </h1> 
 {/*MOST IMPORTANT: Here we are passing the Google Maps props down to the MapContainer component as 'google'.*/}
         <MapContainer google={this.props.google} />
       </div>
