@@ -4,18 +4,53 @@ import './App.css';
 import { GoogleApiWrapper } from 'google-maps-react';
 // import child component
 import MapContainer from './components/MapContainer';
+import Header from './components/Header';
+
+
+
+
+const TrailWidget = (props) => {
+  return (
+    <div>
+      <h2>Trail Name</h2>
+      <ul>
+        <li>twitter status</li>
+        <li>weather info</li>
+        <li>links</li>
+      </ul>
+    </div>
+  );
+}
+
+
+const TrailWidgetContainer = (props) => {
+  return (
+    <div className="col col-4">
+        <TrailWidget />
+        <TrailWidget />
+    </div>
+  );
+}
+
+
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <h1>Trail Tracker </h1> 
-{/*MOST IMPORTANT: Here we are passing the Google Maps props down to the MapContainer component as 'google'.*/}
-        <MapContainer google={this.props.google} />
+      <div className="container-fluid">
+        <Header />
+        <div className="row">
+          <TrailWidgetContainer />
+
+  
+          <MapContainer className="col col-8" google={this.props.google} />
+        </div>
       </div>
     );
   }
 }
+
+
 
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyCTaLRmBLUAfe9WF_a_7FO5OaAXlpuuEEY',
